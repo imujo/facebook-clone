@@ -1,0 +1,40 @@
+.objavaBody {
+  min-height: 400px;
+  width: auto;
+  background-color: white;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.164);
+  margin-bottom: 50px;
+}
+
+.info {
+  width: inherit;
+  height: 80px;
+  background-color: grey;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.date {
+  color: white;
+  font-size: 15px;
+}
+
+h3 {
+  margin-left: 40px;
+  font-size: 40px;
+}
+
+.objavaDescription {
+  margin: 0 60px 60px 60px;
+  font-size: 20px;
+  max-lines: 2;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

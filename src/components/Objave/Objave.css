@@ -1,0 +1,36 @@
+.objaveBody {
+  background-color: rgb(247, 247, 247);
+  padding: 100px 0;
+  min-height: 80vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 960px;
+  justify-content: center;
+  gap: 20px;
+}
+
+.novaObjava {
+  height: 80px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  border-style: solid;
+  border-color: grey;
+  border-width: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.addIcon {
+  font-size: 40px;
+  margin: 0 10px 7px 10px;
+}
+
+.novaObjavaText {
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 980px) {
+  .objaveBody {
+    grid-template-columns: 80vw;
+  }
+}

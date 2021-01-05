@@ -1,0 +1,109 @@
+.welcomeBody {
+  height: 650px;
+  width: 100%;
+  /* background-image: url("../../assets/welcome_background.png"); */
+  background-repeat: no-repeat;
+  background-size: fill;
+  background-position: right bottom;
+  display: flex;
+  justify-content: center;
+}
+
+.personal {
+  display: flex;
+  align-items: center;
+}
+.body {
+  display: flex;
+  align-items: center;
+  height: auto;
+  padding-bottom: 100px;
+}
+
+.headshot {
+  background-image: url("../../assets/headshot.jpg");
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 360px;
+}
+
+.welcomeMessage {
+  margin-left: 40px;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: 700;
+  margin: 0;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.verticalLine {
+  width: 1px;
+  height: 240px;
+  background-color: black;
+  margin-left: 100px;
+}
+
+.stats {
+  height: 250px;
+  width: 200px;
+  margin-left: 100px;
+}
+
+p {
+  margin: 0;
+}
+
+.statName {
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.statValue {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .welcomeBody {
+    height: 550px;
+  }
+  .body {
+    display: inline;
+    justify-items: center;
+    padding: 0;
+  }
+  .personal {
+    padding-top: 60px;
+    justify-content: center;
+    margin: auto;
+  }
+  .verticalLine {
+    height: 1px;
+    width: 350px;
+    margin: 60px auto;
+  }
+  .headshot {
+    height: 200px;
+    width: 200px;
+  }
+  .stats {
+    display: flex;
+    width: 800px;
+    margin-left: 0;
+    justify-content: center;
+  }
+  .statItem {
+    text-align: center;
+    width: 220px;
+    height: 100px;
+  }
+}
