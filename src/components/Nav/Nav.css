@@ -1,0 +1,10 @@
+.navBody {
+  height: 60px;
+  background-color: #355070;
+}
+
+@media screen and (min-width: 1200px) {
+  .navBody {
+    height: 80px;
+  }
+}

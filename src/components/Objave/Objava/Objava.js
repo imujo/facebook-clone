@@ -11,24 +11,25 @@ const Objava = ({ title, description, imageUrl, date }) => {
 
     let showMoreText = '';
 
-    if (description.length < 200){
+    if (description.length < 100){
         desc = description;
     }else{
         if (showMore === false){
             showMoreText = 'Show more';
-            desc = description.substring(0, 200) + '...';
+            desc = description.substring(0, 100) + '...';
         }else{
             showMoreText = 'Show less';
             desc = description;
         }
     }
+    console.log(window.innerWidth)
     
 
     return (
         <div className="objavaBody">
             <div className="info">
                 <p className='date'>{date}</p>
-                <a href="asd"><BiDotsVerticalRounded color='white' size={40}/></a>
+                <a href="asd"><BiDotsVerticalRounded color='white' size={30}/></a>
             </div>
             <h3>{title}</h3>
             <p className='objavaDescription'>{desc}<p className='showMore' onClick={()=>toggleShowMore(!showMore)}>{showMoreText}</p></p>

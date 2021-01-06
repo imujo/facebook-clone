@@ -19,7 +19,7 @@ const Objave = () => {
 
     return (
         <div className="objaveBody">
-            <div className="novaObjava">
+            <div className="novaObjava" onClick={() => console.log('click')}>
                 <p className='addIcon'>+</p>
                 <p className='novaObjavaText'>Nova objava</p>
             </div>
