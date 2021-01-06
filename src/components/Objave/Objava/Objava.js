@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Objava.css';
 import {BiDotsVerticalRounded} from 'react-icons/bi';
 
-const Objava = ({ title, description, imageUrl, date }) => {
+const Objava = ({ title, description, imageUrl, date, index }) => {
 
     const [showMore, toggleShowMore] = useState(false);
 
@@ -28,11 +28,12 @@ const Objava = ({ title, description, imageUrl, date }) => {
     return (
         <div className="objavaBody">
             <div className="info">
-                <p className='date'>{date}</p>
+                <p className='date'>{date.toDateString()}</p>
                 <a href="asd"><BiDotsVerticalRounded color='white' size={30}/></a>
             </div>
             <h3>{title}</h3>
-            <p className='objavaDescription'>{desc}<p className='showMore' onClick={()=>toggleShowMore(!showMore)}>{showMoreText}</p></p>
+            <p className='objavaDescription'>{desc}</p>
+            <p className='showMore' onClick={()=>toggleShowMore(!showMore)}>{showMoreText}</p>
             
             <img src={imageUrl} alt="img"/>
         </div>

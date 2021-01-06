@@ -1,7 +1,17 @@
 import React from 'react';
 import './Welcome.css'
+import objave from '../../data'
 
 const Welcome = () => {
+
+    let datumi = [];
+    objave.map((objava)=>{
+        datumi.push(objava.date)
+        return null
+    })
+    let newestDate = new Date(Math.max.apply(null, datumi))
+    let oldestDate = new Date(Math.min.apply(null, datumi))
+
     return(
         <div className="outline">
             <div className="welcomeBody">
@@ -16,15 +26,15 @@ const Welcome = () => {
             <div className="stats">
             <div className="statItem">
                     <p className='statName'>prva objava</p>
-                    <p className='statValue'>21.12.2020.</p>
+                    <p className='statValue'>{oldestDate.toLocaleDateString()}.</p>
                 </div>
                 <div className="statItem">
                         <p className='statName'>broj objava</p>
-                        <p className='statValue'>43</p>
+                        <p className='statValue'>{objave.length}</p>
                     </div>
                 <div className="statItem">
                     <p className='statName'>poslijednja objava</p>
-                    <p className='statValue'>2.1.2021.</p>
+                    <p className='statValue'>{newestDate.toLocaleDateString()}</p>
                 </div>
             </div>
         </div>

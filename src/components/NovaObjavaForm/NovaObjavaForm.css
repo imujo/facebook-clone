@@ -1,0 +1,144 @@
+.novaObjavaBody {
+  height: 80vh;
+  width: 80vw;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.411);
+  border-radius: 5px;
+  background-color: rgb(241, 241, 241);
+  display: none;
+}
+
+.titleArea {
+  height: 13%;
+  width: 100%;
+  background-color: white;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.novaObjavaForm {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1.2fr 3fr 1.2fr 1fr;
+  height: 87%;
+  padding: 25px 30px;
+  gap: 15px;
+  box-sizing: border-box;
+  grid-template-areas:
+    "TitleForm"
+    "DescForm"
+    "ImageUrlForm"
+    "Buttons";
+}
+
+.titleFormDiv {
+  display: grid;
+  grid-area: TitleForm;
+}
+
+.descFormDiv {
+  display: grid;
+  grid-template-rows: 20% 70% 10%;
+  grid-area: DescForm;
+}
+
+.imageUrlFormDiv {
+  display: grid;
+  grid-area: ImageUrlForm;
+}
+
+.buttonsDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  grid-area: Buttons;
+}
+
+.titleFormLabel {
+  height: 30px;
+}
+
+textarea {
+  width: 90%;
+  justify-self: center;
+}
+
+input {
+  justify-self: center;
+  width: 85%;
+  height: 40px;
+}
+
+.submit {
+  width: 120px;
+  height: 60px;
+  background-color: #01497c;
+  color: white;
+  cursor: pointer;
+}
+
+.formBorder {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.24);
+}
+
+.delete {
+  width: 120px;
+  height: 60px;
+  background-color: rgb(223, 70, 70);
+  color: white;
+  cursor: pointer;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 500;
+  color: #014f86;
+}
+
+.formH1 {
+  font-size: 35px;
+}
+
+@media screen and (min-width: 1000px) {
+  .novaObjavaForm {
+    margin-top: 20px;
+    grid-template-rows: 23% 25% 30% auto;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+      "TitleForm DescForm"
+      "ImageUrlForm DescForm"
+      "Buttons DescForm"
+      "none DescForm";
+  }
+  .descFormDiv {
+    grid-template-rows: 10% 80% 10%;
+  }
+  input {
+    height: 70px;
+  }
+  .submit {
+    height: 70px;
+    width: 140px;
+    font-size: 17px;
+  }
+  .delete {
+    height: 70px;
+    width: 130px;
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .novaObjavaBody {
+    width: 1200px;
+  }
+}
