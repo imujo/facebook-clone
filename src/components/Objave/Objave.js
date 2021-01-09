@@ -1,23 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Objave.css';
 import Objava from './Objava/Objava'
-import objave from '../../data';
 import NovaObjavaForm from '../NovaObjavaForm/NovaObjavaForm'
 
 const Objave = () => {
     
-    const [displayChange, setDisplay]= useState('none')
+    const[novaObjavaOpen, setNovaObjavaOpen] = useState(false);
+    const [objave, setObjave] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/objave')
+            .then(res => res.json())
+            .then(data=>setObjave(data))
+    }, [])
+    
 
     const items = [];
 
-    for (const index in objave){
+    for (var i = 0; i < objave.length; i++){
         items.push(
-            <div data-aos='fade-right' className="objava" key = {index} >
+            <div  className="objava" key = {i} >
                 <Objava 
-                title={objave[index].title}
-                description={objave[index].description}
-                imageUrl={objave[index].imageUrl}
-                date={objave[index].date}
+                title={objave[i].title}
+                description={objave[i].description}
+                imageUrl={objave[i].imageurl}
+                date={objave[i].date}
+                id = {objave[i].id}
+                setNovaObjavaOpen = {setNovaObjavaOpen}
                 />
             </div>
         )
@@ -25,12 +34,31 @@ const Objave = () => {
 
     return (
         <div className="objaveBody">
-            <div data-aos='fade-right' className="novaObjava" onClick={() => setDisplay('inline')}>
+            <div className="novaObjava" onClick={() => setNovaObjavaOpen(!novaObjavaOpen)}>
                 <p className='addIcon'>+</p>
                 <p className='novaObjavaText'>Nova objava</p>
             </div>
-            <NovaObjavaForm displayChange={displayChange}/>
-            {items}
+
+
+
+            {
+                novaObjavaOpen ?
+                <NovaObjavaForm setNovaObjavaOpen={setNovaObjavaOpen} option='nobjava' />
+                :
+                <div></div>
+            }
+
+            {
+                items.length === 0 ?
+                <p className='noObjave'>Nemate objava...</p>
+                :
+                <div>
+                    {items}
+                </div>
+                
+            }
+            
+            
         </div>
     )
 }

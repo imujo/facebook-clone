@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  position: relative;
 }
 
 .date {
@@ -35,6 +36,8 @@ h3 {
   max-lines: 2;
   overflow: hidden;
   font-weight: 300;
+  line-height: 30px;
+  word-wrap: break-word;
 }
 
 img {
@@ -49,6 +52,41 @@ img {
   color: #013a63;
   margin-left: 30px;
   margin-bottom: 30px;
+}
+
+.editButtons {
+  position: absolute;
+  width: 100px;
+  height: 70px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  right: 20px;
+  top: 7px;
+  display: grid;
+}
+
+.editObjava {
+  cursor: pointer;
+}
+
+.buttonNone {
+  border: none;
+  all: unset;
+  background-color: transparent;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.edit {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  font-size: 15px;
+}
+.deleteBtn {
+  font-size: 15px;
+}
+
+.whitespace {
+  white-space: pre;
 }
 
 @media screen and (min-width: 750px) {
@@ -73,5 +111,15 @@ img {
   }
   .showMore {
     margin-left: 50px;
+  }
+  .editButtons {
+    height: 100px;
+    width: 110px;
+  }
+  .edit {
+    font-size: 18px;
+  }
+  .deleteBtn {
+    font-size: 18px;
   }
 }

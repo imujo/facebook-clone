@@ -1,25 +1,27 @@
 .novaObjavaBody {
   height: 80vh;
   width: 80vw;
-  background-color: white;
+  z-index: 1;
+  background-color: rgb(241, 241, 241);
+}
+
+.floatingCenter {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.411);
   border-radius: 5px;
-  background-color: rgb(241, 241, 241);
-  display: none;
 }
 
 .titleArea {
   height: 13%;
   width: 100%;
   background-color: white;
-  padding: 0 20px;
+  padding: 15px 20px;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  align-items: baseline;
   box-sizing: border-box;
 }
 
@@ -106,6 +108,15 @@ label {
 
 .formH1 {
   font-size: 35px;
+  align-self: center;
+}
+
+.close {
+  cursor: pointer;
+}
+
+textarea {
+  font-family: "Montserrat";
 }
 
 @media screen and (min-width: 1000px) {

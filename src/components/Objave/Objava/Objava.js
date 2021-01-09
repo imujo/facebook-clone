@@ -1,17 +1,56 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import './Objava.css';
 import {BiDotsVerticalRounded} from 'react-icons/bi';
+import Delete from '../Delete/Delete';
+import NovaObjavaForm from '../../NovaObjavaForm/NovaObjavaForm'
 
-const Objava = ({ title, description, imageUrl, date, index }) => {
 
+function NewlineText(props) {
+    const text = props.text;
+    const newText = text.split('\n').map((str, i)=>{
+        if (str.length === 0){
+            return <br key={i}/>
+        }else{
+            return <div key={i} className="whitespace">{str}</div>
+        }
+    });
+    return newText;
+  }
+
+
+
+const Objava = ({ title, description, imageUrl, date, id}) => {
     const [showMore, toggleShowMore] = useState(false);
+    const [editButtonsOpen, setEdisButtonsOpen] = useState(false);
+    const [showEditObjava, setEditObjava] = useState(false);
+    const dropdownRef = useRef(null);
+    const [delForm, setDelForm] = useState(false);
+
+    useEffect(() => {
+        const pageClickEvent = (e) => {
+            if (dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
+                setEdisButtonsOpen(!editButtonsOpen);
+            }
+          };
+
+        if (editButtonsOpen) {
+          window.addEventListener('click', pageClickEvent);
+        }
+      
+        return () => {
+          window.removeEventListener('click', pageClickEvent);
+        }
+      
+    }, [editButtonsOpen]);
 
 
     let desc = '';
-
     let showMoreText = '';
-
-    if (description.length < 100){
+    
+    if (description === null){
+        desc = '';
+    }
+    else if (description.length < 100 ){
         desc = description;
     }else{
         if (showMore === false){
@@ -22,20 +61,55 @@ const Objava = ({ title, description, imageUrl, date, index }) => {
             desc = description;
         }
     }
-    console.log(window.innerWidth)
     
+
 
     return (
         <div className="objavaBody">
+            
             <div className="info">
-                <p className='date'>{date.toDateString()}</p>
-                <a href="asd"><BiDotsVerticalRounded color='white' size={30}/></a>
+                <p className='date'>{new Date(date).toDateString()}</p>
+                {editButtonsOpen
+                    ? <div ref ={dropdownRef} className="editButtons">
+                        <button className='edit buttonNone' onClick={()=>setEditObjava(!showEditObjava)} >edit</button>
+                        <button className='deleteBtn buttonNone' onClick={()=>setDelForm(!delForm)} >delete</button>
+                    </div>
+                    : <div></div>
+                }
+                <div className="editObjava" onClick={()=>setEdisButtonsOpen(true)} ><BiDotsVerticalRounded color='white' size={25}/></div>
             </div>
             <h3>{title}</h3>
-            <p className='objavaDescription'>{desc}</p>
+            <div className='objavaDescription'><NewlineText text = {desc} /></div>
             <p className='showMore' onClick={()=>toggleShowMore(!showMore)}>{showMoreText}</p>
             
-            <img src={imageUrl} alt="img"/>
+            {
+                imageUrl ?
+                <img src={imageUrl} alt="url not found"/>
+                :
+                <br/>
+            }
+
+            {
+                delForm ?
+                <Delete setDelForm={setDelForm} id={id} />
+                :
+                <div></div>
+            }
+
+            {
+                showEditObjava ?
+                <NovaObjavaForm 
+                    setNovaObjavaOpen={setEditObjava} 
+                    id={id}
+                    oldTitle={title}
+                    oldDescription = {description}
+                    oldImageUrl = {imageUrl}
+                    option='edit' 
+                />
+                :
+                <div></div>
+            }
+
         </div>
     )
 }

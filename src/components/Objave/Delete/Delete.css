@@ -1,0 +1,26 @@
+.deleteFormBody {
+  height: 200px;
+  width: 350px;
+  background-color: white;
+  z-index: 100;
+  padding: 20px;
+  box-sizing: border-box;
+  display: grid;
+}
+
+.deleteButtons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.promptText {
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+@media screen and (min-width: 1000px) {
+  .deleteFormBody {
+    height: 220px;
+    width: 400px;
+  }
+}
